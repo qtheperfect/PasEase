@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Paste Easily</title>
+    <style>
+      body {
+          font-size: 22px;
+      }
+      pre {
+          white-space: pre-wrap;       /* Since CSS 2.1 */
+          white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+          white-space: -pre-wrap;      /* Opera 4-6 */
+          white-space: -o-pre-wrap;    /* Opera 7 */
+          word-wrap: break-word;       /* Internet Explorer 5.5+ */
+      }
+      .large-button {
+          font-size:150%;
+          width:80%;
+          border: 4px #5555BB solid;
+          background-color:#FFBB33;
+      }
+    </style>
+    <script>
+      function clickBehavior(obj) {
+          navigator.clipboard.writeText(obj.innerText);
+          let c = obj.style["background-color"], c1 = "cyan" ;
+          obj.style["background-color"] = (c == c1) ? "#cc8877" : c1;
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <h1>A Static Page with Inputs</h1>
+    </center>
+
+    <form id="form-new-clip" action="" method="post" enctype="multipart/form-data">
+
+      <input id="optional-new-file" name="optionalfile" class="large-button" type="file" value="Optionally Upload One!" multiple/>
+      <br/>
+      <textarea id="newclip" name="newclip" style="width:99%;height:200px;" placeholder="Paste &amp Slice with Joice!"></textarea><br>
+      <input id="submit-new-clip" type="submit" class="large-button" value="Send This!"/>
+    </form>
+    <center>
+      <h2>A List That Grows:</h2>
+      <form action="/pasbase-cancelast/" method="get" enctype="multipart/form-data">
+        <input id="cancel-last-clip" type="submit" value="Cancel First Item"/>
+      </form>
+    </center>
+    <ol>
+      awaiting-replacement
+    </ol>
+
+  </body>
+</html>
